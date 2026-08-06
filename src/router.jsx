@@ -6,6 +6,7 @@ import Register from "./pages/register/Register";
 import Cart from "./pages/cart/Cart";
 import Products from "./pages/product/Products";
 import ProductDetails from "./pages/product/ProductDetails";
+import ProutectedRouter from "./ProutectedRouter";
 
 
 
@@ -36,7 +37,9 @@ const router = createBrowserRouter([
         },  
          {
           path:"cart",
-          element:< Cart />
+          element:<ProutectedRouter>
+                  < Cart />
+                 </ProutectedRouter>
         }
     ]
   },

@@ -3,9 +3,9 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { registerSchema } from '../../validations/RegisterSchems';
 import useAuthStore from '../../store/useAuthStore';
 import { useNavigate } from 'react-router-dom';
+import { loginSchema } from '../../validations/LoginSchems';
 
 export default function Login() {
       const navigate = useNavigate()
@@ -14,7 +14,7 @@ export default function Login() {
     const setToken = useAuthStore((state)=> state.setToken);
     const {register,handleSubmit,formState:{errors,isSubmitted}} = useForm(
       {
-        resolver:yupResolver(registerSchema)
+        resolver:yupResolver(loginSchema)
       }
     );
     const LoginForm =async(data)=>{

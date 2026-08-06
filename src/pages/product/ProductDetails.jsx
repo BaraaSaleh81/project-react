@@ -1,13 +1,15 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import useProduct from '../../hooks/useProduct'
-import { Box, CircularProgress, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Typography } from '@mui/material';
+import useAddToCart from '../../hooks/useAddToCart';
 
 export default function ProductDetails() {
 
-  const {id} = useParams()
+  const {id} = useParams();
+  const {mutate:addToCart} = useAddToCart()
   const {data,isLoading,isError,error} = useProduct(id);
-  console.log(data)
+
 
   if(isLoading) return <CircularProgress />
    if(isError) return <Typography color='red'>{error}</Typography>
@@ -18,8 +20,7 @@ export default function ProductDetails() {
     <Box>
       <Typography>{data.response.name}</Typography>
       <Typography>{data.response.description}</Typography>
-      <Typography>{data.response.id}</Typography>
-      <Typography>{data.response.price}</Typography>
+      <Button onClick={ ()=>{addToCart({productId:data.response.id,count:1})}}>Add To Cart</Button>
 
     </Box>
   )

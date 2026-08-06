@@ -5,7 +5,8 @@ import useAuthStore from '../../store/useAuthStore'
 export default function Navbar() {
 
   const navigate = useNavigate()
-  const token =useAuthStore((state) => state.token);;
+  const token =useAuthStore((state) => state.token);
+  console.log(token)
   const logout = useAuthStore( (state) => state.logout);
    const handleLogout = ()=>{
     logout();
