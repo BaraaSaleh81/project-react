@@ -20,7 +20,7 @@ export default function ProductDetails() {
     <Box>
       <Typography>{data.response.name}</Typography>
       <Typography>{data.response.description}</Typography>
-      <Button onClick={ ()=>{addToCart({productId:data.response.id,count:1})}}>Add To Cart</Button>
+      <Button onClick={ ()=>{addToCart({ProductId:data.response.id,Count:1})}}>Add To Cart</Button>
 
     </Box>
   )

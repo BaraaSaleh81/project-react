@@ -1,8 +1,10 @@
-import { useMutation } from '@tanstack/react-query'
+import { QueryClient, useMutation, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 import authAxiosInstance from '../api/authAxiosInstance'
 
 export default function useAddToCart() {
+
+    const queryClient = useQueryClient()
 
    return useMutation({
         mutationFn:async(values)=>{
@@ -12,6 +14,10 @@ export default function useAddToCart() {
               
             });
             
+        },onSuccess:()=>{
+            queryClient.invalidateQueries({
+                queryKey:['cart']
+            })
         }
     });
  
