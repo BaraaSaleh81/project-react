@@ -7,9 +7,11 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useTranslation } from 'react-i18next';
 import useClearCart from '../../hooks/useClearCart';
+import {  useNavigate } from 'react-router-dom';
 
 
 export default function Cart() {
+  const navigate = useNavigate()
           const {t} = useTranslation()
 
     const {data,isLoading,isError,error}= useCart()
@@ -75,7 +77,11 @@ console.log(data);
         </Table>
       </TableContainer>
       			{updateItem.length > 0 && <button onClick={handleClearCart}>Clear Cart</button>}
-
+<Box  >
+  <Button variant='contained' onClick={()=>navigate('/checout')}>Process To Checkout</Button>
+  <Button variant='contained' onClick={()=>navigate('/')}>Continue Shopping</Button>
+</Box>
     </Box>
+
   )
 }

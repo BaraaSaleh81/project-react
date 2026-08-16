@@ -16,7 +16,7 @@ export default function Products() {
     
   return (
     <Box className="products" component={"section"}>
-        <Typography  component="h1" variant='h2'>{t('Products')}</Typography>
+        <Typography  component="h1" variant='h2' color='primary'>{t('Products')}</Typography>
         <Grid container spacing={{xs:2 , md:3}} sx={{textAlign:'center'}}>
 
         {data.response.data.map((product)=>{

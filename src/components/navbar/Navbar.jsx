@@ -5,6 +5,8 @@ import useCart from '../../hooks/useCart';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18next';
 import { Button } from '@mui/material';
+import useThemeStore from '../../store/useThemeStore';
+
 
 export default function Navbar() {
 
@@ -23,19 +25,24 @@ export default function Navbar() {
     logout();
     navigate('/login');
    }
-
+ 
+   const {mode,toggleModel} = useThemeStore()
   return (
     <nav>
+      <Button onClick={toggleModel}> {mode=="light"? "Dark":"light"}</Button>
+
     <Link to="/">{t('Home')}</Link>
     <Link to="products">{t('Products')}</Link>
     { token ? <>
         <Link to="login" onClick={handleLogout}>{t('Logout')}</Link>
 
       <Link to="cart" >{t('Cart')} {cartCount}</Link>
+      <Link to="profile" >{t('Profile')}</Link>
 </> :
 <>
     <Link to="register">{t('Register')}</Link>
-         <Link to="login">{t('Login')}</Link>
+    <Link to="login">{t('Login')}</Link>
+    <Link to="shop">{t('shop')}</Link>
 
 </>
 }

@@ -6,7 +6,7 @@ export default function useClearCart() {
              const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn:()=> authAxiosInstance.delete(`/Carts`),
+    mutationFn:()=> authAxiosInstance.delete(`/Carts/clear`),
     onSuccess: ()=>{
             queryClient.invalidateQueries({
               queryKey:['cart'] 

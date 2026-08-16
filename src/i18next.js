@@ -17,7 +17,8 @@ i18n
             'Cart':'Cart',
             'Profile':'Profile',
             'Categories':'Categories',
-            'Products':'Products'
+            'Products':'Products',
+            'profile':'Profile'
         }
       },
         ar: {
@@ -28,7 +29,8 @@ i18n
             'Cart':'السلة',
             'Profile':'الصفحة الشخصية ',
             'Categories':'التصنيفات',
-            'Products':'المنتجات'
+            'Products':'المنتجات',
+            'profile':'الصفحة الشخصية '
 
         }
       
